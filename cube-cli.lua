@@ -1,5 +1,6 @@
 -- Simplify the task of building fast and scalable network applications.
--- Use a message passing, event-driven, non-blocking, no share memory, no thread design.
+-- Use message passing, event-driven, non-blocking,
+-- asynchronous, no shared memory, no multi-thread design.
 
 -- require lua modules
 local zmq = require("lzmq")
