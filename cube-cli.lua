@@ -34,9 +34,6 @@ local args = parser:parse()
 print(args)
 
 if args['command'] == 'install' then
-    print('Installing the shit out if this node')
-    --os.execute("mkdir " .. args['build'])
-    
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
     os.execute("mv erlang.mk " .. args['build'])
