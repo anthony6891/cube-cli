@@ -2,12 +2,14 @@
 -- Use message passing, event-driven, non-blocking,
 -- asynchronous, no shared memory, no multi-thread design.
 --
+-- And Now for Something Completely Different 
+--
 -- require lua modules
 local zmq = require("lzmq")
 local argparse = require("argparse")
 local socket = require("socket")
 local uuid = require("uuid")
--- init uuid random seed
+-- init random seed
 uuid.randomseed(socket.gettime()*10000)
 -- Session UUID
 local session_uuid = uuid()
@@ -36,15 +38,15 @@ if args['command'] == 'install' then
     os.execute("rm erlang.mk")
     os.execute("cd " .. args['build'] .." && make all")
 elseif args['command'] == 'start' then
-	print('start')
-	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release start")
+    print('start')
+    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release start")
 elseif args['command'] == 'stop' then
-	print('stop')
-	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release stop")
+    print('stop')
+    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release stop")
 elseif args['command'] == 'ping' then
-	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
+    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
 elseif args['command'] == 'status' then
-	print('status')
+    print('status')
 else
-	print('do something else')
+    print('do something else')
 end
