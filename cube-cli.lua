@@ -23,6 +23,7 @@ parser:option("-b --build", "build node on location", "/opt/treehouse")
 -- cube-cli command
 parser:command_target("command")
 parser:command("install")
+parser:command("purge")
 parser:command("start")
 parser:command("stop")
 parser:command("ping")
@@ -47,6 +48,8 @@ elseif args['command'] == 'ping' then
     os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
 elseif args['command'] == 'status' then
     print('status')
+elseif args['command'] == 'purge' then
+    os.execute("rm -Rf " .. args['build'])
 else
     print('do something else')
 end
