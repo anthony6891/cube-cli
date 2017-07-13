@@ -24,10 +24,10 @@ parser:option("-b --build", "build node on location", "/opt/treehouse")
 
 parser:command_target("command")
 parser:command("install")
+parser:command("start")
+parser:command("stop")
+parser:command("ping")
 parser:command("status")
-parser:command("remove")
-parser:command("update")
-parser:command("upgrade")
 
 local args = parser:parse()
 
@@ -37,7 +37,18 @@ if args['command'] == 'install' then
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
     os.execute("mv erlang.mk " .. args['build'])
+    os.execute("rm erlang.mk")
     os.execute("cd " .. args['build'] .." && make all")
+elseif args['command'] == 'start' then
+	print('start')
+	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release start")
+elseif args['command'] == 'stop' then
+	print('stop')
+	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release stop")
+elseif args['command'] == 'ping' then
+	os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
+elseif args['command'] == 'status' then
+	print('status')
 else
 	print('do something else')
 end
