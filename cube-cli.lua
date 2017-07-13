@@ -31,7 +31,7 @@ parser:command("status")
 -- parse cli arguments
 local args = parser:parse()
 -- until more complete implementation print current arguments on execution time.
-print(args)
+--print(args)
 if args['command'] == 'install' then
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
@@ -39,10 +39,8 @@ if args['command'] == 'install' then
     os.execute("rm erlang.mk")
     os.execute("cd " .. args['build'] .." && make all")
 elseif args['command'] == 'start' then
-    print('start')
     os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release start")
 elseif args['command'] == 'stop' then
-    print('stop')
     os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release stop")
 elseif args['command'] == 'ping' then
     os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
