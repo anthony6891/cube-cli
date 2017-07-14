@@ -14,7 +14,7 @@ uuid.randomseed(socket.gettime()*10000)
 -- Session UUID
 local session_uuid = uuid()
 local parser = argparse() {
-   name = "dice",
+   name = "cube-cli",
    description = "An artifact discovered full of https://cloudforest.ws seeds.",
    epilog = "Research of the Cube's function are still ongoing. \nFor more info, see https://nonsense.ws."
 }
