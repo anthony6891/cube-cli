@@ -34,6 +34,7 @@ parser:command("status")
 local args = parser:parse()
 -- until more complete implementation print current arguments on execution time.
 print(args)
+-- rage against the state machine
 if args['command'] == 'install' then
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
