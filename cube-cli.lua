@@ -15,8 +15,8 @@ uuid.randomseed(socket.gettime()*10000)
 local session_uuid = uuid()
 local parser = argparse() {
    name = "cube-cli",
-   description = "An artifact discovered full of https://cloudforest.ws seeds.",
-   epilog = "Research of the Cube's function are still ongoing. \nFor more info, see https://nonsense.ws."
+   description = "An artifact discovered full of SHA/OS https://cloudforest.ws seeds.",
+   epilog = "Research of the Cube's origin and function are still ongoing. \nFor more info, see https://nonsense.ws."
 }
 -- treehouse build and release directory
 parser:option("-b --build", "build node on location", "/opt/treehouse")
@@ -26,12 +26,13 @@ parser:command("install")
 parser:command("purge")
 parser:command("start")
 parser:command("stop")
+parser:command("upgrade")
 parser:command("ping")
 parser:command("status")
 -- parse cli arguments
 local args = parser:parse()
 -- until more complete implementation print current arguments on execution time.
---print(args)
+print(args)
 if args['command'] == 'install' then
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
@@ -46,6 +47,8 @@ elseif args['command'] == 'ping' then
     os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
 elseif args['command'] == 'status' then
     print('status')
+elseif args['command'] == 'upgrade' then
+    print('upgrade')
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['build'])
 else
