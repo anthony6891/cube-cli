@@ -13,10 +13,14 @@ local uuid = require("uuid")
 uuid.randomseed(socket.gettime()*10000)
 -- Session UUID
 local session_uuid = uuid()
+-- Erlang/OTP release
+local release = "/_rel/treehouse_release/bin/treehouse_release"
+-- Parse CLI arguments
 local parser = argparse() {
    name = "cube-cli.lua",
    description = "An artifact discovered full of https://cloudforest.ws seeds.",
-   epilog = "Research of the Cube's origin and function are still ongoing. \nFor more info, see https://nonsense.ws."
+   epilog = "Research of the Cube's origin and function are still ongoing. " .. 
+            "\nFor more info, see https://nonsense.ws."
 }
 -- treehouse build and release directory
 parser:option("-b --build", "build node on location", "/opt/treehouse")
@@ -43,11 +47,11 @@ if args['command'] == 'install' then
     os.execute("rm erlang.mk")
     os.execute("cd " .. args['build'] .." && make all")
 elseif args['command'] == 'start' then
-    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release start")
+    os.execute(args['build'] .. release .. " start")
 elseif args['command'] == 'stop' then
-    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release stop")
+    os.execute(args['build'] .. release .. " stop")
 elseif args['command'] == 'ping' then
-    os.execute(args['build'] .. "/_rel/treehouse_release/bin/treehouse_release ping")
+    os.execute(args['build'] .. release .. " ping")
 elseif args['command'] == 'status' then
     print('status')
 elseif args['command'] == 'upgrade' then
