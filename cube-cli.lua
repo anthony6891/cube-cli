@@ -27,6 +27,7 @@ parser:command("purge")
 parser:command("start")
 parser:command("stop")
 parser:command("upgrade")
+parser:command("search")
 parser:command("ping")
 parser:command("status")
 -- parse cli arguments
@@ -49,6 +50,8 @@ elseif args['command'] == 'status' then
     print('status')
 elseif args['command'] == 'upgrade' then
     print('upgrade')
+elseif args['command'] == 'search' then
+    print('search')
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['build'])
 else
