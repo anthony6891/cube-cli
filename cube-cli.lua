@@ -19,7 +19,7 @@ local release = "/_rel/treehouse_release/bin/treehouse_release"
 local parser = argparse() {
    name = "cube-cli.lua",
    description = "An artifact discovered full of https://cloudforest.ws seeds.",
-   epilog = "Research of the Cube's origin and function are still ongoing. " .. 
+   epilog = "Research of the SHA/OS Cube's origin and function are still ongoing. " .. 
             "\nFor more info, see https://nonsense.ws."
 }
 -- treehouse build and release directory
