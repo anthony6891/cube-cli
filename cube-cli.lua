@@ -30,6 +30,7 @@ parser:command("install")
 parser:command("purge")
 parser:command("start")
 parser:command("stop")
+parser:command("exec")
 parser:command("upgrade")
 parser:command("search")
 parser:command("ping")
@@ -50,6 +51,8 @@ elseif args['command'] == 'start' then
     os.execute(args['build'] .. release .. " start")
 elseif args['command'] == 'stop' then
     os.execute(args['build'] .. release .. " stop")
+elseif args['command'] == 'exec' then
+    print('container exec')
 elseif args['command'] == 'ping' then
     os.execute(args['build'] .. release .. " ping")
 elseif args['command'] == 'status' then
