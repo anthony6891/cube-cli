@@ -34,6 +34,8 @@ parser:command("exec")
 parser:command("upgrade")
 parser:command("search")
 parser:command("ping")
+parser:command("join")
+parser:command("leave")
 parser:command("status")
 -- parse cli arguments
 local args = parser:parse()
@@ -61,6 +63,10 @@ elseif args['command'] == 'upgrade' then
     print('upgrade')
 elseif args['command'] == 'search' then
     print('search')
+elseif args['command'] == 'leave' then
+    print('leave')
+elseif args['command'] == 'join' then
+    print('join')
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['build'])
 else
