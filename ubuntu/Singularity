@@ -1,5 +1,5 @@
 BootStrap: debootstrap
-OSVersion: trusty
+OSVersion: xenial
 MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 
 
@@ -10,4 +10,7 @@ MirrorURL: http://us.archive.ubuntu.com/ubuntu/
 %post
     echo "Hello from inside the container"
     sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get -y --force-yes install vim
+    apt-get -y install aptitude
+    dpkg --add-architecture i386 
+    apt-get update
+    aptitude install -y wine winetricks
