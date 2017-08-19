@@ -1,6 +1,6 @@
 -- Simplify the task of building fast and scalable network applications.
--- Use message passing, event-driven, non-blocking,
--- asynchronous, no shared memory, no multi-thread design.
+-- Use message passing, event-driven, non-blocking, asynchronous,
+-- concurrent, no shared memory, no multi-thread design.
 --
 -- And Now for Something Completely Different 
 --
@@ -39,14 +39,14 @@ parser:command("leave")
 parser:command("status")
 -- parse cli arguments
 local args = parser:parse()
--- until more complete implementation print current arguments on execution time.
+-- until more complete implementation print args on exec time.
 print(args)
 -- rage against the state machine
 if args['command'] == 'install' then
     os.execute("git clone https://github.com/nonsensews/treehouse " .. args['build'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
     os.execute("mv erlang.mk " .. args['build'])
-    -- just in case something fails remove erlang.mk from current directory.
+    -- if crash remove erlang.mk from current directory.
     os.execute("rm erlang.mk")
     os.execute("cd " .. args['build'] .." && make all")
 elseif args['command'] == 'start' then
