@@ -24,19 +24,17 @@ local parser = argparse() {
 }
 -- treehouse build and release directory
 parser:option("-b --build", "build node on location", "/opt/treehouse")
+parser:option("-c --container", "install singularity container", "broodwar")
 -- cube-cli command
 parser:command_target("command")
+parser:command("checkout")
 parser:command("install")
-parser:command("purge")
 parser:command("start")
 parser:command("stop")
-parser:command("exec")
-parser:command("upgrade")
-parser:command("search")
 parser:command("ping")
-parser:command("join")
-parser:command("leave")
-parser:command("status")
+parser:command("purge")
+parser:command("pull")
+parser:command("run")
 -- parse cli arguments
 local args = parser:parse()
 -- until more complete implementation print args on exec time.
@@ -53,22 +51,16 @@ elseif args['command'] == 'start' then
     os.execute(args['build'] .. release .. " start")
 elseif args['command'] == 'stop' then
     os.execute(args['build'] .. release .. " stop")
-elseif args['command'] == 'exec' then
-    print('container exec')
 elseif args['command'] == 'ping' then
     os.execute(args['build'] .. release .. " ping")
-elseif args['command'] == 'status' then
-    print('status')
-elseif args['command'] == 'upgrade' then
-    print('upgrade')
-elseif args['command'] == 'search' then
-    print('search')
-elseif args['command'] == 'leave' then
-    print('leave')
-elseif args['command'] == 'join' then
-    print('join')
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['build'])
+elseif args['command'] == 'pull' then
+    print('pull')
+elseif args['command'] == 'run' then
+    print('run')
+elseif args['command'] == 'checkout' then
+    print('checkout')
 else
     print('do something else')
 end
