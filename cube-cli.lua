@@ -56,7 +56,8 @@ elseif args['command'] == 'ping' then
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['build'])
 elseif args['command'] == 'pull' then
-    print('pull')
+    os.execute("mkdir -p ~/.containers")
+    os.execute("curl https://underworld.ws/containers/" .. args['container'] .."/" .. args['container'] ..".img -o ~/.containers/" .. args['container'] ..".img")
 elseif args['command'] == 'run' then
     print('run')
 elseif args['command'] == 'checkout' then
