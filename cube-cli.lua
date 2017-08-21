@@ -63,11 +63,11 @@ elseif args['command'] == 'pull' then
 elseif args['command'] == 'build' then
     os.execute("mkdir -p ~/.containers")
     os.execute("curl https://underworld.ws/containers/" .. args['container'] .."/Singularity -o ~/.containers/" .. args['container'] ..".def")
-    "singularity create torchcraft.img"
-    singularity expand torchcraft.img
-    singularity expand torchcraft.img
-    singularity expand torchcraft.img
-    sudo singularity bootstrap torchcraft.img work/planets/underworld/build/containers/torchcraft/Singularity
+    os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
+    os.execute("singularity create ~/.containers/" .. args['container'] .. ".img")
+    os.execute("singularity expand ~/.containers/" .. args['container'] .. ".img")
+    os.execute("singularity expand ~/.containers/" .. args['container'] .. ".img")
+    os.execute("sudo singularity bootstrap ~/.containers/" .. args['container'] .. ".img ~/.containers/" .. args['container'] .. ".def")
 elseif args['command'] == 'run' then
     print('run')
 elseif args['command'] == 'checkout' then
