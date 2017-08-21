@@ -27,7 +27,6 @@ parser:option("-b --build", "build node on location", "/opt/treehouse")
 parser:option("-c --container", "install singularity container", "broodwar")
 -- cube-cli command
 parser:command_target("command")
-parser:command("checkout")
 parser:command("install")
 parser:command("start")
 parser:command("stop")
@@ -35,6 +34,7 @@ parser:command("ping")
 parser:command("purge")
 parser:command("pull")
 parser:command("run")
+parser:command("checkout")
 -- parse cli arguments
 local args = parser:parse()
 -- until more complete implementation print args on exec time.
