@@ -36,13 +36,19 @@ parser:command("pull")
 parser:command("build")
 parser:command("run")
 parser:command("checkout")
+-- local command and repo variables
+local containers = "curl https://underworld.ws/containers/"
+local create = "singularity create ~/.containers/"
+local expand = "singularity expand ~/.containers/"
+local bootstrap = "sudo singularity bootstrap ~/.containers/"
+local treehouse = "git clone https://github.com/nonsensews/treehouse"
 -- parse cli arguments
 local args = parser:parse()
 -- until more complete implementation print args on exec time.
 print(args)
 -- rage against the state machine
 if args['command'] == 'install' then
-    os.execute("git clone https://github.com/nonsensews/treehouse " .. args['spawn'])
+    os.execute(treehouse .. " " .. args['spawn'])
     os.execute("curl -O https://erlang.mk/erlang.mk")
     os.execute("mv erlang.mk " .. args['spawn'])
     -- if crash remove erlang.mk from current directory.
@@ -59,15 +65,28 @@ elseif args['command'] == 'purge' then
     os.execute("rm -Rf ~/.containers")
 elseif args['command'] == 'pull' then
     os.execute("mkdir -p ~/.containers")
-    os.execute("curl https://underworld.ws/containers/" .. args['container'] .."/" .. args['container'] ..".img -o ~/.containers/" .. args['container'] ..".img")
+    os.execute(containers .. 
+        args['container'] ..
+        ".img -o ~/.containers/" ..
+        args['container'] ..
+        ".img")
 elseif args['command'] == 'build' then
     os.execute("mkdir -p ~/.containers")
-    os.execute("curl https://underworld.ws/containers/" .. args['container'] .."/Singularity -o ~/.containers/" .. args['container'] ..".def")
+    os.execute(containers .. 
+        "index/" .. 
+        args['container'] .. 
+        ".def -o ~/.containers/" .. 
+        args['container'] ..
+        ".def")
     os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
-    os.execute("singularity create ~/.containers/" .. args['container'] .. ".img")
-    os.execute("singularity expand ~/.containers/" .. args['container'] .. ".img")
-    os.execute("singularity expand ~/.containers/" .. args['container'] .. ".img")
-    os.execute("sudo singularity bootstrap ~/.containers/" .. args['container'] .. ".img ~/.containers/" .. args['container'] .. ".def")
+    os.execute(create .. args['container'] .. ".img")
+    os.execute(expand .. args['container'] .. ".img")
+    os.execute(expand .. args['container'] .. ".img")
+    os.execute(bootstrap .. 
+        args['container'] .. 
+        ".img ~/.containers/" .. 
+        args['container'] .. 
+        ".def")
 elseif args['command'] == 'run' then
     print('run')
 elseif args['command'] == 'checkout' then
