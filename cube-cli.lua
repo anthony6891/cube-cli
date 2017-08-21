@@ -24,7 +24,8 @@ local parser = argparse() {
 }
 -- treehouse build and release directory
 parser:option("-s --spawn", "build node on location", "/opt/treehouse")
-parser:option("-c --container", "install singularity container", "broodwar")
+parser:option("-c --container", "install singularity container", "starcraft")
+parser:option("-q --query", "query container index", "starcraft")
 -- cube-cli command
 parser:command_target("command")
 parser:command("install")
@@ -35,6 +36,7 @@ parser:command("purge")
 parser:command("pull")
 parser:command("build")
 parser:command("run")
+parser:command("search")
 parser:command("checkout")
 -- local command and repo variables
 local containers = "curl https://underworld.ws/containers/"
@@ -91,6 +93,8 @@ elseif args['command'] == 'run' then
     print('run')
 elseif args['command'] == 'checkout' then
     print('checkout')
+elseif args['command'] == 'search' then
+    print('search')
 else
     print('do something else')
 end
