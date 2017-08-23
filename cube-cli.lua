@@ -36,13 +36,14 @@ parser:command("purge")
 parser:command("pull")
 parser:command("build")
 parser:command("run")
-parser:command("search")
 parser:command("checkout")
+parser:command("search")
 -- local command and repo variables
 local containers = "curl https://underworld.ws/containers/"
 local create = "singularity create ~/.containers/"
 local expand = "singularity expand ~/.containers/"
 local bootstrap = "sudo singularity bootstrap ~/.containers/"
+local run = "singularity run --writable ~/.containers/"
 local treehouse = "git clone https://github.com/nonsensews/treehouse"
 -- parse cli arguments
 local args = parser:parse()
@@ -90,9 +91,9 @@ elseif args['command'] == 'build' then
         args['container'] .. 
         ".def")
 elseif args['command'] == 'run' then
-    print('run')
+    os.execute(run .. args['container'] .. ".img")
 elseif args['command'] == 'checkout' then
-    print('checkout')
+    os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
 else
