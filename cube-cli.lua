@@ -25,7 +25,7 @@ local parser = argparse() {
 -- treehouse build and release directory
 parser:option("-s --spawn", "build node on location", "/opt/treehouse")
 parser:option("-c --container", "install singularity container", "f99de75fa5bd30ac31505fd7487d6086")
-parser:option("-q --query", "query https://nonsense.ws container index", "starcraft")
+parser:option("-q --query", "query https://underworld.ws singularity container index", "starcraft")
 -- cube-cli command
 parser:command_target("command")
 parser:command("install")
