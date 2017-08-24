@@ -39,9 +39,9 @@ parser:command("build")
 parser:command("run")
 parser:command("checkout")
 parser:command("search")
-parser:command("move")
-parser:command("hold")
-parser:command("patrol")
+--parser:command("move")
+--parser:command("hold")
+--parser:command("patrol")
 parser:command("update")
 parser:command("upgrade")
 parser:command("status")
@@ -103,12 +103,12 @@ elseif args['command'] == 'checkout' then
     os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
-elseif args['command'] == 'move' then
-    print('move')
-elseif args['command'] == 'hold' then
-    print('hold')
-elseif args['command'] == 'patrol' then
-    print('patrol')
+--elseif args['command'] == 'move' then
+--    print('move')
+--elseif args['command'] == 'hold' then
+--    print('hold')
+--elseif args['command'] == 'patrol' then
+--    print('patrol')
 elseif args['command'] == 'update' then
     os.execute("sudo apt-get update")
 elseif args['command'] == 'upgrade' then
