@@ -110,9 +110,9 @@ elseif args['command'] == 'hold' then
 elseif args['command'] == 'patrol' then
     print('patrol')
 elseif args['command'] == 'update' then
-    print('update')
+    os.execute("sudo apt-get update")
 elseif args['command'] == 'upgrade' then
-    print('upgrade')
+    os.execute("sudo aptitude dist-upgrade -y")
 elseif args['command'] == 'status' then
     print('status')
 else
