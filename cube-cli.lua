@@ -1,3 +1,4 @@
+--
 -- Simplify the task of building fast and scalable network applications.
 -- Use message passing, event-driven, non-blocking, asynchronous,
 -- concurrent, no shared memory, no multi-thread design.
@@ -22,7 +23,7 @@ local parser = argparse() {
    epilog = "Research of the SHA/OS Cube's origin and function are still ongoing. " ..
             "\nFor more info, see https://nonsense.ws."
 }
--- treehouse build and release directory
+-- treehouse build and erlang release directory
 parser:option("-s --spawn", "build node on location", "/opt/treehouse")
 parser:option("-c --container", "install singularity container", "f99de75fa5bd30ac31505fd7487d6086")
 parser:option("-q --query", "query https://underworld.ws singularity container index", "starcraft")
@@ -38,10 +39,12 @@ parser:command("build")
 parser:command("run")
 parser:command("checkout")
 parser:command("search")
-parser:command("zap")
 parser:command("move")
 parser:command("hold")
 parser:command("patrol")
+parser:command("update")
+parser:command("upgrade")
+parser:command("status")
 -- local command and repo variables
 local containers = "curl https://underworld.ws/containers/"
 local create = "singularity create ~/.containers/"
