@@ -103,14 +103,18 @@ elseif args['command'] == 'checkout' then
     os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
-elseif args['command'] == 'zap' then
-    print('zap')
 elseif args['command'] == 'move' then
     print('move')
 elseif args['command'] == 'hold' then
     print('hold')
 elseif args['command'] == 'patrol' then
     print('patrol')
+elseif args['command'] == 'update' then
+    print('update')
+elseif args['command'] == 'upgrade' then
+    print('upgrade')
+elseif args['command'] == 'status' then
+    print('status')
 else
     print('do something else')
 end
