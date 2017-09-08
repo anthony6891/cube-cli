@@ -19,13 +19,13 @@ local release = "/_rel/treehouse_release/bin/treehouse_release"
 -- Parse CLI arguments
 local parser = argparse() {
    name = "cube-cli.lua",
-   description = "An artifact discovered full of https://cloudforest.ws seeds.",
+   description = "An artifact discovered full of https://shaos.ws seeds.",
    epilog = "Research of the SHA/OS Cube's origin and function are still ongoing. " ..
             "\nFor more info, see https://nonsense.ws."
 }
 -- treehouse build and erlang release directory
 parser:option("-s --spawn", "build node on location", "/opt/treehouse")
-parser:option("-u --unit", "install unit hash", "f99de75fa5bd30ac31505fd7487d6086")
+parser:option("-u --unit", "unit hash", "f99de75fa5bd30ac31505fd7487d6086")
 parser:option("-q --query", "query https://underworld.ws hash index", "starcraft")
 -- cube-cli command
 parser:command_target("command")
