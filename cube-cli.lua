@@ -43,11 +43,11 @@ parser:command("update")
 parser:command("upgrade")
 parser:command("status")
 -- local command and repo variables
-local containers = "curl https://underworld.ws/containers/"
-local create = "singularity create ~/.containers/"
-local expand = "singularity expand ~/.containers/"
-local bootstrap = "sudo singularity bootstrap ~/.containers/"
-local run = "singularity run --writable ~/.containers/"
+local hashs = "curl https://underworld.ws/hashs/"
+local create = "singularity create ~/.hashs/"
+local expand = "singularity expand ~/.hashs/"
+local bootstrap = "sudo singularity bootstrap ~/.hashs/"
+local run = "singularity run --writable ~/.hashs/"
 local treehouse = "git clone https://github.com/nonsensews/treehouse"
 -- parse cli arguments
 local args = parser:parse()
@@ -69,35 +69,35 @@ elseif args['command'] == 'ping' then
     os.execute(args['spawn'] .. release .. " ping")
 elseif args['command'] == 'purge' then
     os.execute("rm -Rf " .. args['spawn'])
-    os.execute("rm -Rf ~/.containers")
+    os.execute("rm -Rf ~/.hashs")
 elseif args['command'] == 'pull' then
-    os.execute("mkdir -p ~/.containers")
-    os.execute(containers ..
+    os.execute("mkdir -p ~/.hashs")
+    os.execute(hashs ..
         args['container'] ..
-        ".img -o ~/.containers/" ..
+        ".img -o ~/.hashs/" ..
         args['container'] ..
         ".img")
 elseif args['command'] == 'build' then
-    os.execute("mkdir -p ~/.containers")
-    os.execute(containers ..
+    os.execute("mkdir -p ~/.hashs")
+    os.execute(hashs ..
         "index/" ..
         args['container'] ..
-        ".def -o ~/.containers/" ..
+        ".def -o ~/.hashs/" ..
         args['container'] ..
         ".def")
-    os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
+    os.execute("rm -Rf ~/.hashs/" .. args['container'] .. ".img")
     os.execute(create .. args['container'] .. ".img")
     os.execute(expand .. args['container'] .. ".img")
     os.execute(expand .. args['container'] .. ".img")
     os.execute(bootstrap ..
         args['container'] ..
-        ".img ~/.containers/" ..
+        ".img ~/.hashs/" ..
         args['container'] ..
         ".def")
 elseif args['command'] == 'run' then
     os.execute(run .. args['container'] .. ".img")
 elseif args['command'] == 'checkout' then
-    os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
+    os.execute("rm -Rf ~/.hashs/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
 elseif args['command'] == 'update' then
