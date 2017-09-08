@@ -25,8 +25,8 @@ local parser = argparse() {
 }
 -- treehouse build and erlang release directory
 parser:option("-s --spawn", "build node on location", "/opt/treehouse")
-parser:option("-c --container", "install singularity container", "f99de75fa5bd30ac31505fd7487d6086")
-parser:option("-q --query", "query https://underworld.ws singularity container index", "starcraft")
+parser:option("-u --unit", "install unit hash", "f99de75fa5bd30ac31505fd7487d6086")
+parser:option("-q --query", "query https://underworld.ws hash index", "starcraft")
 -- cube-cli command
 parser:command_target("command")
 parser:command("install")
@@ -39,9 +39,6 @@ parser:command("build")
 parser:command("run")
 parser:command("checkout")
 parser:command("search")
---parser:command("move")
---parser:command("hold")
---parser:command("patrol")
 parser:command("update")
 parser:command("upgrade")
 parser:command("status")
@@ -103,12 +100,6 @@ elseif args['command'] == 'checkout' then
     os.execute("rm -Rf ~/.containers/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
---elseif args['command'] == 'move' then
---    print('move')
---elseif args['command'] == 'hold' then
---    print('hold')
---elseif args['command'] == 'patrol' then
---    print('patrol')
 elseif args['command'] == 'update' then
     os.execute("sudo apt-get update")
 elseif args['command'] == 'upgrade' then
