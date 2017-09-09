@@ -36,8 +36,9 @@ parser:command("ping")
 parser:command("purge")
 parser:command("pull")
 parser:command("build")
-parser:command("run")
-parser:command("checkout")
+parser:command("execute")
+parser:command("consume")
+parser:command("remove")
 parser:command("search")
 parser:command("update")
 parser:command("upgrade")
@@ -94,9 +95,14 @@ elseif args['command'] == 'build' then
         ".img ~/.hashs/" ..
         args['container'] ..
         ".def")
-elseif args['command'] == 'run' then
+elseif args['command'] == 'execute' then
     os.execute(run .. args['container'] .. ".img")
-elseif args['command'] == 'checkout' then
+elseif args['command'] == 'consume' then
+
+    print('consume a singularity definition file if pass else do?')
+--    os.execute(run .. args['container'] .. ".img")
+
+elseif args['command'] == 'remove' then
     os.execute("rm -Rf ~/.hashs/" .. args['container'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
