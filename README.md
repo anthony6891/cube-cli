@@ -13,5 +13,6 @@
 - execute
 - consume
 - remove
+- search
 - upgrade
 - status
