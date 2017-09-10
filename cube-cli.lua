@@ -74,36 +74,36 @@ elseif args['command'] == 'purge' then
 elseif args['command'] == 'pull' then
     os.execute("mkdir -p ~/.hashs")
     os.execute(hashs ..
-        args['container'] ..
+        args['unit'] ..
         ".img -o ~/.hashs/" ..
-        args['container'] ..
+        args['unit'] ..
         ".img")
 elseif args['command'] == 'build' then
     os.execute("mkdir -p ~/.hashs")
     os.execute(hashs ..
         "index/" ..
-        args['container'] ..
+        args['unit'] ..
         ".def -o ~/.hashs/" ..
-        args['container'] ..
+        args['unit'] ..
         ".def")
-    os.execute("rm -Rf ~/.hashs/" .. args['container'] .. ".img")
-    os.execute(create .. args['container'] .. ".img")
-    os.execute(expand .. args['container'] .. ".img")
-    os.execute(expand .. args['container'] .. ".img")
+    os.execute("rm -Rf ~/.hashs/" .. args['unit'] .. ".img")
+    os.execute(create .. args['unit'] .. ".img")
+    os.execute(expand .. args['unit'] .. ".img")
+    os.execute(expand .. args['unit'] .. ".img")
     os.execute(bootstrap ..
-        args['container'] ..
+        args['unit'] ..
         ".img ~/.hashs/" ..
-        args['container'] ..
+        args['unit'] ..
         ".def")
 elseif args['command'] == 'execute' then
-    os.execute(run .. args['container'] .. ".img")
+    os.execute(run .. args['unit'] .. ".img")
 elseif args['command'] == 'consume' then
 
     print('consume a singularity definition file if pass else do?')
---    os.execute(run .. args['container'] .. ".img")
+--    os.execute(run .. args['unit'] .. ".img")
 
 elseif args['command'] == 'remove' then
-    os.execute("rm -Rf ~/.hashs/" .. args['container'] .. ".img")
+    os.execute("rm -Rf ~/.hashs/" .. args['unit'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
 elseif args['command'] == 'update' then
