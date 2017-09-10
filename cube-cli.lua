@@ -40,7 +40,6 @@ parser:command("execute")
 parser:command("consume")
 parser:command("remove")
 parser:command("search")
-parser:command("update")
 parser:command("upgrade")
 parser:command("status")
 -- local command and repo variables
@@ -106,9 +105,8 @@ elseif args['command'] == 'remove' then
     os.execute("rm -Rf ~/.hashs/" .. args['unit'] .. ".img")
 elseif args['command'] == 'search' then
     print('search')
-elseif args['command'] == 'update' then
-    os.execute("sudo apt-get update")
 elseif args['command'] == 'upgrade' then
+    os.execute("sudo apt-get update")
     os.execute("sudo aptitude dist-upgrade -y")
 elseif args['command'] == 'status' then
     print('status')
