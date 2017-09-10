@@ -2,7 +2,6 @@
 [SHA/OS](https://shaos.ws) cube command line management tool.
 
 #### Current list of commands
-- help
 - install
 - start
 - stop
