@@ -1,7 +1,7 @@
 # cube-cli
 [SHA/OS](https://shaos.ws) cube command line management tool.
 
-For help using guild, including a list of commands, run:
+For help using cube-cli, including a list of commands, run:
 
   `$ cube-cli --help`
 
