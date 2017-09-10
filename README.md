@@ -1,5 +1,5 @@
 # cube-cli
-[SHA/OS](https://shaos.ws) cube command line management tool.
+[SHA/OS](https://shaos.ws) cube command line management toolset — all operations are run using the cube-cli command.
 
 For help using cube-cli, including a list of commands, run:
 
