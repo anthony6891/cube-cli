@@ -1,2 +1,2 @@
 # cube-cli
-Command line tool for working with [SHA/OS](https://shaos.ws) units and nodes.
+[SHA/OS](https://shaos.ws) Cube command line management tool.
