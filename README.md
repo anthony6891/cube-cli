@@ -1,2 +1,2 @@
 # cube-cli
-Command line tool for working with https://cloudforest.ws units, nodes and structures.
+Command line tool for working with [SHA/OS](https://shaos.ws) units and nodes.
