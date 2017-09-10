@@ -1,2 +1,2 @@
 # cube-cli
-[SHA/OS](https://shaos.ws) Cube command line management tool.
+[SHA/OS](https://shaos.ws) cube command line management tool.
