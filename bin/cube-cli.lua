@@ -1,3 +1,4 @@
+#!/usr/bin/env lua
 --
 -- Simplify the task of building fast and scalable network applications.
 -- Use message passing, event-driven, non-blocking, asynchronous,
