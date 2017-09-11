@@ -1,8 +1,8 @@
 package = "cube-cli"
-version = "0.1-3"
+version = "0.1-4"
 source = {
    url = "git://github.com/nonsensews/cube-cli",
-   tag = "0.1.3",
+   tag = "0.1.4",
 }
 description = {
    summary = "An artifact discovered full of SHA/OS seeds.",
@@ -28,7 +28,7 @@ build = {
    },
   install = {
     bin = {
-      ['cube-cli'] = 'cube-cli.lua'
+      ['cube-cli'] = "bin/cube-cli"
     }
   }
 }
