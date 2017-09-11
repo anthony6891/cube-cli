@@ -1,8 +1,8 @@
 package = "cube-cli"
-version = "0.1-0"
+version = "0.1-1"
 source = {
    url = "git://github.com/nonsensews/cube-cli",
-   tag = "0.1.0",
+   tag = "0.1.1",
 }
 description = {
    summary = "An artifact discovered full of https://shaos.ws seeds.",
@@ -15,5 +15,8 @@ description = {
 }
 dependencies = {
    "lua >= 5.1, < 5.4",
-   "luaknife >= 2.3"
+   "lzmq",
+   "argparse",
+   "socket",
+   "uuid"
 }
