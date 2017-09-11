@@ -1,4 +1,4 @@
-#!/usr/bin/env lua
+#!/usr/bin/env luajit
 --
 -- Simplify the task of building fast and scalable network applications.
 -- Use message passing, event-driven, non-blocking, asynchronous,
@@ -98,10 +98,7 @@ elseif args['command'] == 'build' then
 elseif args['command'] == 'execute' then
     os.execute(run .. args['unit'] .. ".img")
 elseif args['command'] == 'consume' then
-
     print('consume a singularity definition file if pass else do?')
---    os.execute(run .. args['unit'] .. ".img")
-
 elseif args['command'] == 'remove' then
     os.execute("rm -Rf ~/.hashs/" .. args['unit'] .. ".img")
 elseif args['command'] == 'search' then

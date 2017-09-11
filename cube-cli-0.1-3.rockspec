@@ -1,8 +1,8 @@
 package = "cube-cli"
-version = "0.1-2"
+version = "0.1-3"
 source = {
    url = "git://github.com/nonsensews/cube-cli",
-   tag = "0.1.2",
+   tag = "0.1.3",
 }
 description = {
    summary = "An artifact discovered full of SHA/OS seeds.",
@@ -17,23 +17,18 @@ dependencies = {
    "lua == 5.1",
    "lzmq",
    "argparse",
-   "socket",
+   "luasocket",
    "uuid"
 }
 
 build = {
   type = 'builtin',
   modules = {
-    ['cube.errors']      = 'cube/errors.lua',
-    ['cube.handlers']    = 'cube/handlers.lua',
-    ['cube.messages']    = 'cube/messages.lua',
-    ['cube.system']      = 'cube/system.lua',
-    ['cube.tools']       = 'cube/tools.lua',
-    ['cube.init']        = 'cube/init.lua',
-  },
+      ['cube.version'] = "cube/version.lua"
+   },
   install = {
     bin = {
-      ['cube-cli'] = 'bin/cube-cli'
+      ['cube-cli'] = 'cube-cli.lua'
     }
   }
 }
