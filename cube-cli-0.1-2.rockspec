@@ -20,3 +20,20 @@ dependencies = {
    "socket",
    "uuid"
 }
+
+build = {
+  type = 'builtin',
+  modules = {
+    ['cube.errors']      = 'cube/errors.lua',
+    ['cube.handlers']    = 'cube/handlers.lua',
+    ['cube.messages']    = 'cube/messages.lua',
+    ['cube.system']      = 'cube/system.lua',
+    ['cube.tools']       = 'cube/tools.lua',
+    ['cube.init']        = 'cube/init.lua',
+  },
+  install = {
+    bin = {
+      ['cube-cli'] = 'bin/cube-cli'
+    }
+  }
+}
