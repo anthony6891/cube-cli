@@ -9,7 +9,7 @@ You can use LuaRocks to install cube-cli on Linux.
 
 ``luarocks install cube-cli``
 
-If installation fails make sure that you have [singularity](http://singularity.lbl.gov) installed.
+If the installation fails make sure that you have [singularity](http://singularity.lbl.gov) installed.
 
 
 For help using cube-cli, including a list of commands, run:
