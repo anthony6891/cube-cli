@@ -19,7 +19,7 @@ local session_uuid = uuid()
 local release = "/_rel/treehouse_release/bin/treehouse_release"
 -- Parse CLI arguments
 local parser = argparse() {
-   name = "cube-cli.lua",
+   name = "cube-cli",
    description = "An artifact discovered full of https://shaos.ws seeds.",
    epilog = "Research of the SHA/OS Cube's origin and function are still ongoing. " ..
             "\nFor more info, see https://nonsense.ws."
