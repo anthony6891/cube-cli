@@ -25,7 +25,6 @@ For help using cube-cli, including a list of commands, run:
 - pull
 - build
 - execute
-- consume
 - remove
 - search
 - upgrade
