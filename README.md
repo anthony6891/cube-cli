@@ -23,6 +23,7 @@ For help using cube-cli, including a list of commands, run:
 - ping
 - purge
 - pull
+- push
 - build
 - execute
 - remove
