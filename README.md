@@ -1,5 +1,5 @@
 # cube-cli
-[SHA/OS](https://shaos.ws) cube command line management toolkit — all operations are run using the cube-cli command.
+[SHA/OS](https://shaos.ws) command line management toolkit — all operations are run using the cube-cli command.
 
 The cube aim and spawn multi-dimensional cloud forest nodes of virtual jungle units.
 
