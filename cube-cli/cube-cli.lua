@@ -36,6 +36,7 @@ parser:command("stop")
 parser:command("ping")
 parser:command("purge")
 parser:command("pull")
+parser:command("push")
 parser:command("build")
 parser:command("execute")
 parser:command("remove")
@@ -47,7 +48,7 @@ local hashs = "curl https://underworld.ws/hashs/"
 local create = "singularity create ~/.hashs/"
 local expand = "singularity expand ~/.hashs/"
 local bootstrap = "sudo singularity bootstrap ~/.hashs/"
-local run = "singularity run --writable ~/.hashs/"
+local execute = "singularity run --writable ~/.hashs/"
 local treehouse = "git clone https://github.com/nonsensews/treehouse"
 -- parse cli arguments
 local args = parser:parse()
@@ -77,6 +78,8 @@ elseif args['command'] == 'pull' then
         ".img -o ~/.hashs/" ..
         args['unit'] ..
         ".img")
+elseif args['command'] == 'push' then
+    print('yo yo yo !')
 elseif args['command'] == 'build' then
     os.execute("mkdir -p ~/.hashs")
     os.execute(hashs ..
@@ -95,7 +98,7 @@ elseif args['command'] == 'build' then
         args['unit'] ..
         ".def")
 elseif args['command'] == 'execute' then
-    os.execute(run .. args['unit'] .. ".img")
+    os.execute(execute .. args['unit'] .. ".img")
 elseif args['command'] == 'remove' then
     os.execute("rm -Rf ~/.hashs/" .. args['unit'] .. ".img")
 elseif args['command'] == 'search' then

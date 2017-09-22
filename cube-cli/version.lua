@@ -1,7 +1,7 @@
 --
 -- And Now for Something Completely Different
 --
-local version = "0.1-5"
+local version = "0.1-6"
 --
 --
 --    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░╔░Ñß╠░░░░░░░░░░░░░░░░░░░░░░░»░░░░░░░░░░░░░░░░░░░░░
